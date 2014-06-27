@@ -9,7 +9,10 @@ class LessonsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return Lesson::all();  // really bad practice
+		$lessons = Lesson::all();
+        return Response::json([
+            'data' => $lessons->toArray()
+        ], 200);
 	}
 
 
