@@ -11,7 +11,7 @@ class LessonsController extends \BaseController {
 	{
 		$lessons = Lesson::all();
         return Response::json([
-            'data' => $this->transform($lessons)
+            'data' => $this->transformCollection($lessons)
         ], 200);
 	}
 
@@ -57,7 +57,7 @@ class LessonsController extends \BaseController {
             ], 404);
         }
         return Response::json([
-            'data' => $lesson->toArray()
+            'data' => $this->transform($lesson->toArray())
         ], 200);
 	}
 
@@ -97,16 +97,18 @@ class LessonsController extends \BaseController {
 		//
 	}
 
-    private function transform($lessons)
+    private function transformCollection($lessons)
     {
-        return array_map(function($lesson)
-        {
-            return [
-                'title' => $lesson['title'],
-                'body'  => $lesson['body'],
-                'active' => $lesson['some_bool']
-            ];
-        }, $lessons->toArray());
+        return array_map([$this, 'transform'], $lessons->toArray());
+    }
+
+    private function transform($lesson)
+    {
+        return [
+            'title' => $lesson['title'],
+            'body'  => $lesson['body'],
+            'active' => $lesson['some_bool']
+        ];
     }
 
 
