@@ -1,4 +1,4 @@
-<?php // next lesson must be №5
+<?php 
 
 class LessonsController extends \BaseController {
 
