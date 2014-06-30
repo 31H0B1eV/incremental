@@ -51,7 +51,7 @@ class ApiController extends BaseController {
      * @param $message
      * @return mixed
      */
-    public function unprocessableEntity($message)
+    public function unprocessableEntityError($message)
     {
         return $this->setStatusCode(422)
             ->respondWithError($message);

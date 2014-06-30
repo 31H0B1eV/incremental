@@ -51,7 +51,7 @@ class LessonsController extends ApiController {
 	{
         if(! Input::get('title') or ! Input::get('body'))
         {
-            return $this->unprocessableEntity('Parameters failed validation for a lesson.');
+            return $this->unprocessableEntityError('Parameters failed validation for a lesson.');
         }
 
         Lesson::create(Input::all());
