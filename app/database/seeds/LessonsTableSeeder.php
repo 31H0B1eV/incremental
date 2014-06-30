@@ -6,8 +6,6 @@ class LessonsTableSeeder extends Seeder {
 
     public function run()
     {
-        Lesson::truncate();
-
         $faker = Faker::create();
 
         foreach (range(1, 30) as $index)
