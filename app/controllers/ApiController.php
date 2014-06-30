@@ -47,6 +47,16 @@ class ApiController extends BaseController {
         return $this->setStatusCode(500)->respondWithError($message);
     }
 
+    /**
+     * @param $message
+     * @return mixed
+     */
+    public function unprocessableEntity($message)
+    {
+        return $this->setStatusCode(422)
+            ->respondWithError($message);
+    }
+
     //TODO implement other response code
 
     /**
