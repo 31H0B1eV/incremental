@@ -72,4 +72,16 @@ class ApiController extends BaseController {
             ]
         ]);
     }
+
+    /**
+     * @param $message
+     * @return mixed
+     */
+    public function respondCreated($message)
+    {
+        return $this->setStatusCode(201)->respond([
+            'status'  => 'success',
+            'message' => $message
+        ]);
+    }
 } 

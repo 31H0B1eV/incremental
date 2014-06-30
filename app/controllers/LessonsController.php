@@ -54,7 +54,11 @@ class LessonsController extends ApiController {
             return $this->setStatusCode(422)
                         ->respondWithError('Parameters failed validation for a lesson.');
         }
-	}
+
+        Lesson::create(Input::all());
+
+        return $this->respondCreated('Lesson successfully created.');
+    }
 
 
 	/**
@@ -112,4 +116,6 @@ class LessonsController extends ApiController {
 	{
 		//
 	}
+
+
 }
