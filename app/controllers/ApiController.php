@@ -4,6 +4,10 @@
  * Class ApiController
  */
 class ApiController extends BaseController {
+    const HTTP_RESPONSE_CREATED = 201;
+    const HTTP_INTERNAL_ERROR = 500;
+    const HTTP_NOT_FOUND = 404;
+    const HTTP_UNPROCESSABLE_ENTITY = 422;
 
     /**
      * @var int
@@ -35,7 +39,8 @@ class ApiController extends BaseController {
      */
     public function respondNotFound($message = 'Not found!')
     {
-        return $this->setStatusCode(404)->respondWithError($message);
+        return $this->setStatusCode(self::HTTP_NOT_FOUND)
+                    ->respondWithError($message);
     }
 
     /**
@@ -44,7 +49,20 @@ class ApiController extends BaseController {
      */
     public function respondInternalError($message = 'Internal Error!')
     {
-        return $this->setStatusCode(500)->respondWithError($message);
+        return $this->setStatusCode(self::HTTP_INTERNAL_ERROR)
+                    ->respondWithError($message);
+    }
+
+    /**
+     * @param $message
+     * @return mixed
+     */
+    public function respondCreated($message)
+    {
+        return $this->setStatusCode(self::HTTP_RESPONSE_CREATED)->respond([
+            'status'  => 'success',
+            'message' => $message
+        ]);
     }
 
     /**
@@ -53,8 +71,8 @@ class ApiController extends BaseController {
      */
     public function unprocessableEntityError($message)
     {
-        return $this->setStatusCode(422)
-            ->respondWithError($message);
+        return $this->setStatusCode(self::HTTP_UNPROCESSABLE_ENTITY)
+                    ->respondWithError($message);
     }
 
     //TODO implement other response code
@@ -80,18 +98,6 @@ class ApiController extends BaseController {
                 'message' => $message,
                 'status_code' => $this->getStatusCode()
             ]
-        ]);
-    }
-
-    /**
-     * @param $message
-     * @return mixed
-     */
-    public function respondCreated($message)
-    {
-        return $this->setStatusCode(201)->respond([
-            'status'  => 'success',
-            'message' => $message
         ]);
     }
 } 
