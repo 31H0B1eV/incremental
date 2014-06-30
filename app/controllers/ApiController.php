@@ -47,6 +47,8 @@ class ApiController extends BaseController {
         return $this->setStatusCode(500)->respondWithError($message);
     }
 
+    //TODO implement other response code
+
     /**
      * @param $data
      * @param array $headers
