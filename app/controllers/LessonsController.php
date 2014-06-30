@@ -1,8 +1,20 @@
-<?php 
+<?php
 
-class LessonsController extends \BaseController {
+use Acme\Transformers\LessonTransformer;
 
-	/**
+class LessonsController extends ApiController {
+
+    /**
+     * @var Acme\Transformers\LessonTransformer
+     */
+    protected $lessonTransformer;
+
+    function __construct(LessonTransformer $lessonTransformer)
+    {
+        $this->lessonTransformer = $lessonTransformer;
+    }
+
+    /**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
@@ -10,9 +22,10 @@ class LessonsController extends \BaseController {
 	public function index()
 	{
 		$lessons = Lesson::all();
-        return Response::json([
-            'data' => $this->transformCollection($lessons)
-        ], 200);
+
+        return $this->respond([
+            'data' => $this->lessonTransformer->transformCollection($lessons->all())
+        ]);
 	}
 
 
@@ -50,15 +63,12 @@ class LessonsController extends \BaseController {
 
         if(!$lesson)
         {
-            return Response::json([
-                'error' => [
-                    'message' => 'Lesson does not exists'
-                ]
-            ], 404);
+            return $this->respondNotFound('Lesson does not exist');
         }
-        return Response::json([
-            'data' => $this->transform($lesson->toArray())
-        ], 200);
+
+        return $this->respond([
+            'data' => $this->lessonTransformer->transform($lesson)
+        ]);
 	}
 
 
@@ -96,20 +106,4 @@ class LessonsController extends \BaseController {
 	{
 		//
 	}
-
-    private function transformCollection($lessons)
-    {
-        return array_map([$this, 'transform'], $lessons->toArray());
-    }
-
-    private function transform($lesson)
-    {
-        return [
-            'title' => $lesson['title'],
-            'body'  => $lesson['body'],
-            'active' => (boolean) $lesson['some_bool']
-        ];
-    }
-
-
 }
