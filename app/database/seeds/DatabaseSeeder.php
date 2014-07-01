@@ -43,9 +43,6 @@ class DatabaseSeeder extends Seeder {
          */
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
 
-//        User::truncate();
-//        Lesson::truncate();
-//        Tag::truncate();
         foreach ($this->tables as $tableName)
         {
             DB::table($tableName)->truncate();
