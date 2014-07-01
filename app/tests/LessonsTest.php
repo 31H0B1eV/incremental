@@ -27,6 +27,14 @@ class LessonsTest extends ApiTester {
         $this->assertObjectHasAttributes($lesson, 'body', 'title', 'active');
     }
 
+    /** @test */
+    public function it_404s_if_a_lesson_is_not_found()
+    {
+        $this->getJson('api/v1/lessons/x');
+
+        $this->assertResponseStatus(404);
+    }
+
     /**
      * @param array $lessonFields
      */
