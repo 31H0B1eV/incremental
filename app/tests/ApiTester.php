@@ -26,10 +26,32 @@ class ApiTester extends TestCase {
     }
 
     /**
+     * Setup database for each test
+     */
+//    public function setUp()
+//    {
+//        parent::setUp();
+//
+//        $this->app['artisan']->call('migrate');
+//    }
+
+    /**
      * @param $count
+     * @return $this
      */
     protected function times($count)
     {
         $this->times = $count;
+
+        return $this;
+    }
+
+    /**
+     * @param $uri
+     * @return string
+     */
+    protected function getJson($uri)
+    {
+        return json_encode($this->call('GET', $uri)->getContent());
     }
 } 

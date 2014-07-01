@@ -9,7 +9,7 @@ class LessonsTest extends ApiTester {
     public function it_fetches_lessons()
     {
         // arrange
-        $this->times(5)->makeLesson();
+//        $this->times(5)->makeLesson();
 
         // act
         $this->getJson('api/v1/lessons');
