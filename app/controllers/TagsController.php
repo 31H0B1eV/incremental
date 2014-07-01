@@ -1,15 +1,37 @@
 <?php
 
+use Acme\Transformers\TagsTransformer;
+
+/**
+ * Class TagsController
+ */
 class TagsController extends ApiController {
 
-	/**
+    /**
+     * @var
+     */
+    protected $tagTransformer;
+
+    /**
+     * @param $tagTransformer
+     */
+    function __construct(TagsTransformer $tagTransformer)
+    {
+        $this->tagTransformer = $tagTransformer;
+    }
+
+    /**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		return Tag::all();
+		$tags = Tag::all();
+
+        return $this->respond([
+            'data' => $this->tagTransformer->transformCollection($tags->all())
+        ]);
 	}
 
 
