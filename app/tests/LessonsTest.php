@@ -9,7 +9,7 @@ class LessonsTest extends ApiTester {
     public function it_fetches_lessons()
     {
         // arrange
-//        $this->makeLesson();
+        //TODO
 
         // act
         $this->getJson('api/v1/lessons');
@@ -34,19 +34,5 @@ class LessonsTest extends ApiTester {
 
         $this->assertResponseStatus(404);
     }
-
-    /**
-     * @param array $lessonFields
-     */
-//    private function makeLesson($lessonFields = [])
-//    {
-//        $lesson = array_merge([
-//            'title' => $this->fake->sentence,
-//            'body'  => $this->fake->paragraph,
-//            'some_bool' => $this->fake->boolean
-//        ], $lessonFields);
-//
-//        while($this->times--) Lesson::create($lesson);
-//    }
 
 }
