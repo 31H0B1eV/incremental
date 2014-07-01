@@ -1,4 +1,4 @@
-<?php
+<?php  //TODO implement frontend part of application with angularjs
 
 return array(
 
