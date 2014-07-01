@@ -39,6 +39,7 @@
     "require-dev": {
         "fzaninotto/faker": "dev-master",
         "barryvdh/laravel-debugbar": "1.x",
-        "way/generators": "2.*"
+        "way/generators": "2.*",
+        "phpunit/phpunit": "3.7.*"
     }
 }
