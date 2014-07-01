@@ -27,17 +27,6 @@ class LessonsTest extends ApiTester {
         $this->assertObjectHasAttributes($lesson, 'body', 'title', 'active');
     }
 
-    private function assertObjectHasAttributes()
-    {
-        $args = func_get_args();
-        $object = array_shift($args);
-
-        foreach($args as $attribute)
-        {
-            $this->assertObjectHasAttribute($attribute, $object);
-        }
-    }
-
     /**
      * @param array $lessonFields
      */
