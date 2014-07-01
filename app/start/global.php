@@ -53,7 +53,7 @@ App::error(function(Exception $exception, $code)
 
 App::error(function(Illuminate\Database\Eloquent\ModelNotFoundException $exception, $code)
 {
-    Response::json(['error' => ['message' => 'Resource not found']], 404);
+    return Response::json(['error' => ['message' => 'Resource not found']], 404);
 });
 
 /*
