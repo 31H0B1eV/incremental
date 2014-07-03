@@ -128,6 +128,7 @@ return array(
         'Codesleeve\AssetPipeline\AssetPipelineServiceProvider',
 
         'zinoviev\YandexDiskServiceProvider',
+        'zinoviev\YandexOAuthServiceProvider',
 
 	),
 

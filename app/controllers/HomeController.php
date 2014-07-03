@@ -4,13 +4,14 @@ class HomeController extends BaseController {
 
     public function index()
     {
-        $lessons = Lesson::paginate(8);
+//        $lessons = Lesson::paginate(8);
 
         $disk = App::make('disk');
+        $client = App::make('oauth');
 
-        dd($disk);
+        $client->authRedirect(true);
 
-        return View::make('lessons', compact('lessons'));
+//        return View::make('lessons', compact('lessons'));
     }
 
     public function show($lessonId)
@@ -18,5 +19,20 @@ class HomeController extends BaseController {
 //        $lesson = Lesson::findOrFail($lessonId);
 //
 //        return View::make('lesson_detail', compact('lesson'));
+    }
+
+    public function auth()
+    {
+        $client = App::make('oauth');
+
+        try {
+            $client->requestAccessToken(Request::get('code'));
+        } catch (AuthRequestException $ex) {
+            echo $ex->getMessage();
+        }
+
+        $token = $client->getAccessToken();
+
+        return $token;
     }
 }

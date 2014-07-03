@@ -51,6 +51,13 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 });
 
+App::error(function(Yandex\OAuth\Exception\AuthRequestException $exception, $code)
+{
+    return Response::json(['error' => ['message' => 'Auth denied',
+                                       'exception' => $exception->getMessage(),
+                                       'error_code' => $code]], 404);
+});
+
 App::error(function(Illuminate\Database\Eloquent\ModelNotFoundException $exception, $code)
 {
     return Response::json(['error' => ['message' => 'Resource not found',

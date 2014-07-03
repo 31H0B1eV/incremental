@@ -9,3 +9,4 @@ Route::group(['prefix' => 'api/v1'], function()
 
 Route::get('/', 'HomeController@index');
 //Route::get('lessons/{id}', 'HomeController@show');
+Route::get('/auth', 'HomeController@auth');
