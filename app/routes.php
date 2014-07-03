@@ -15,3 +15,5 @@ Route::get('/', function()
 Route::get('lessons', array( 'as' => 'home', 'uses' => 'HomeController@index' ));
 //Route::get('lessons/{id}', 'HomeController@show');
 Route::get('/auth_redirect_url', 'HomeController@getToken');
+
+Route::get('folder', 'FolderController@index');

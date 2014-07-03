@@ -33,7 +33,7 @@
                         <!-- <li><a href="#popular">About</a></li> -->
                         <li><a href="/lessons">Lessons</a></li>
                         @if(isset($username))
-                            <li><a href="#">{{ $username }}</a></li>
+                            <li><a href="folder">{{ $username }}</a></li>
                         @endif
                     </ul>
                 </div>
