@@ -12,3 +12,7 @@
 .not-favorited:hover {
     color: #ff0000;
 }
+
+.thumbnail p{
+    clear: left;
+}

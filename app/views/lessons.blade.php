@@ -13,7 +13,7 @@
     <div class="row">
         @foreach ($lessons as $lesson)
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-            <article class="thumbnail">
+            <div class="thumbnail">
 <!--                <img src="http://placehold.it/300x300/" alt="...">-->
                 <div class="caption">
                     <a href="lessons/{{ $lesson->id }}"><h3>{{ $lesson->title }}</h3></a>
@@ -24,7 +24,7 @@
                             <span class="glyphicon glyphicon-heart not-favorited"></span>
                         </button>
                 </div>
-            </article>
+            </div>
         </div>
         @endforeach
     </div>

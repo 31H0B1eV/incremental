@@ -4,7 +4,7 @@ class HomeController extends BaseController {
 
     public function index()
     {
-        $lessons = Lesson::paginate(3);
+        $lessons = Lesson::paginate(4);
 
         return View::make('lessons', compact('lessons'));
     }

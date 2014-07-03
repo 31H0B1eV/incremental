@@ -66,40 +66,7 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-        <script>
-            /*pagination via ajax*/
-           /* $(document).ready(function() {
-               $(document).on('click', '.pagination a', function (e) {
-                    getLessons($(this).attr('href').split('page=')[1]);
-                    e.preventDefault();
-                });
-            });
-            function getLessons(page) {
-                $.ajax({
-                    url : '?page=' + page,
-                    dataType: 'json'
-                }).done(function (data) {
-                    $('.lessons').html(data);
-                    location.hash = page;
-                }).fail(function () {
-                    alert('Lessons could not be loaded.');
-                });
-            }*/
-            /*end pagination via ajax*/
-            function equalHeight(group) {
-                var tallest = 0;
-                group.each(function() {
-                    var thisHeight = $(this).height();
-                    if(thisHeight > tallest) {
-                        tallest = thisHeight;
-                    }
-                });
-                group.each(function() { $(this).height(tallest); });
-            }
-            $(document).ready(function() {
-                equalHeight($(".thumbnail"));
-            });
-        </script>
+        <script src="js/main.js"></script>
     </body>
 </body>
 </html>
