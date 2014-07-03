@@ -2,7 +2,7 @@
 
 use Acme\Transformers\LessonTransformer;
 
-class LessonsController extends ApiController {
+class LessonsApiController extends ApiController {
 
     /**
      * @var Acme\Transformers\LessonTransformer

@@ -1,0 +1,14 @@
+/* main.css */
+
+.btn-naked {
+    background: none;
+    border: none;
+}
+
+.not-favorited {
+    color: #808080;
+}
+
+.not-favorited:hover {
+    color: #ff0000;
+}
