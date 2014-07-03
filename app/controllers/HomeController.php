@@ -11,8 +11,8 @@ class HomeController extends BaseController {
 
     public function show($lessonId)
     {
-        $lesson = Lesson::findOrFail($lessonId);
-
-        return View::make('lesson_detail', compact('lesson'));
+//        $lesson = Lesson::findOrFail($lessonId);
+//
+//        return View::make('lesson_detail', compact('lesson'));
     }
 }

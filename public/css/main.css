@@ -1,5 +1,20 @@
 /* main.css */
 
+body {
+    margin-top: 50px; /* 50px is the height of the navbar - change this if the navbar height changes */
+    background-image: url("../img/az_subtle.png");
+    /*background-color: #f5f5f5;*/
+    background-clip: padding-box;
+    border: solid transparent;
+    border-width: 1px 1px 1px 6px;
+    min-height: 28px;
+    padding: 10px 0 0;
+    box-shadow: inset 1px 1px 0 rgba(0,0,0,.1),inset 0 -1px 0 rgba(0,0,0,.07);
+}
+footer {
+    margin: 50px 0;
+}
+
 .btn-naked {
     background: none;
     border: none;

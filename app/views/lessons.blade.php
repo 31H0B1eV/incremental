@@ -13,7 +13,9 @@
             <div class="thumbnail">
 <!--                <img src="http://placehold.it/300x300/" alt="...">-->
                 <div class="caption">
-                    <a href="lessons/{{ $lesson->id }}"><h3>{{ $lesson->title }}</h3></a>
+<!--                    <a href="lessons/{{ $lesson->id }}">-->
+                        <h3>{{ $lesson->title }}</h3>
+<!--                    </a>-->
                     <p>{{ $lesson->body }}</p>
                 </div>
                 <div class="text-center">
