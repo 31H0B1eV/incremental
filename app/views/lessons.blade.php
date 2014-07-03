@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('title')
- Lear Laravel | Lessons
+ Incremental | Lessons
 @stop
 
 @section('content')

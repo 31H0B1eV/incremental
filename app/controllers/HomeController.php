@@ -13,11 +13,11 @@ class HomeController extends BaseController {
 
         $disk = App::make('disk');
 
-        dd($disk->diskSpaceInfo());
+        $username = $disk->getLogin();
 
         $lessons = Lesson::paginate(8);
 
-        return View::make('lessons', compact('lessons'));
+        return View::make('lessons', compact('lessons', 'username'));
     }
 
     public function show($lessonId)

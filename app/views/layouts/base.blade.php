@@ -31,7 +31,10 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <!-- <li><a href="#popular">About</a></li> -->
-                        <li><a href="/">Lessons</a></li>
+                        <li><a href="/lessons">Lessons</a></li>
+                        @if(isset($username))
+                            <li><a href="#">{{ $username }}</a></li>
+                        @endif
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

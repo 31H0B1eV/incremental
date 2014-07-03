@@ -17,8 +17,6 @@ class YandexDiskServiceProvider extends ServiceProvider {
         {
             $token = $_COOKIE['yandex_access_token'];
 
-            echo $token;
-
             return new DiskClient($token);
         });
     }
