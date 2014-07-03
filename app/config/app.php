@@ -127,6 +127,8 @@ return array(
         'Way\Generators\GeneratorsServiceProvider',
         'Codesleeve\AssetPipeline\AssetPipelineServiceProvider',
 
+        'zinoviev\YandexDiskServiceProvider',
+
 	),
 
 	/*

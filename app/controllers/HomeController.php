@@ -6,6 +6,10 @@ class HomeController extends BaseController {
     {
         $lessons = Lesson::paginate(8);
 
+        $disk = App::make('disk');
+
+        dd($disk);
+
         return View::make('lessons', compact('lessons'));
     }
 
