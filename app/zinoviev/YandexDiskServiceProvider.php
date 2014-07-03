@@ -5,8 +5,6 @@ use Yandex\Disk\DiskClient;
 
 class YandexDiskServiceProvider extends ServiceProvider {
 
-    const AUTH_TOKEN = '';
-
     /**
      * Register the service provider.
      * for using: App::make('disk');
@@ -17,7 +15,11 @@ class YandexDiskServiceProvider extends ServiceProvider {
     {
         $this->app->bind('disk', function()
         {
-            return new DiskClient(self::AUTH_TOKEN);
+            $token = $_COOKIE['yandex_access_token'];
+
+            echo $token;
+
+            return new DiskClient($token);
         });
     }
 }

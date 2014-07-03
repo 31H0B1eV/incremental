@@ -11,7 +11,9 @@ class HomeController extends BaseController {
             $client->authRedirect(true);
         }
 
-        // $disk = App::make('disk');
+        $disk = App::make('disk');
+
+        dd($disk->diskSpaceInfo());
 
         $lessons = Lesson::paginate(8);
 
@@ -38,6 +40,7 @@ class HomeController extends BaseController {
         $token = $client->getAccessToken();
 
         setcookie('yandex_access_token', $token);
+        $_COOKIE['yandex_access_token'] = $token;
 
         return Redirect::home();
     }
