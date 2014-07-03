@@ -7,6 +7,6 @@ Route::group(['prefix' => 'api/v1'], function()
     Route::resource('tags', 'TagsController', ['only' => ['index', 'show']]);
 });
 
-Route::get('/', 'HomeController@index');
+Route::get('/', array( 'as' => 'home', 'uses' => 'HomeController@index' ));
 //Route::get('lessons/{id}', 'HomeController@show');
-Route::get('/auth', 'HomeController@auth');
+Route::get('/auth_redirect_url', 'HomeController@getToken');

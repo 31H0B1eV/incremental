@@ -4,14 +4,18 @@ class HomeController extends BaseController {
 
     public function index()
     {
-//        $lessons = Lesson::paginate(8);
+        if(!isset($_COOKIE['yandex_access_token']))
+        {
+            $client = App::make('oauth');
 
-        $disk = App::make('disk');
-        $client = App::make('oauth');
+            $client->authRedirect(true);
+        }
 
-        $client->authRedirect(true);
+        // $disk = App::make('disk');
 
-//        return View::make('lessons', compact('lessons'));
+        $lessons = Lesson::paginate(8);
+
+        return View::make('lessons', compact('lessons'));
     }
 
     public function show($lessonId)
@@ -21,7 +25,7 @@ class HomeController extends BaseController {
 //        return View::make('lesson_detail', compact('lesson'));
     }
 
-    public function auth()
+    public function getToken()
     {
         $client = App::make('oauth');
 
@@ -33,6 +37,8 @@ class HomeController extends BaseController {
 
         $token = $client->getAccessToken();
 
-        return $token;
+        setcookie('yandex_access_token', $token);
+
+        return Redirect::home();
     }
 }
